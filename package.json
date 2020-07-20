@@ -1,0 +1,33 @@
+{
+  "name": "project-name",
+  "version": "1.0.0",
+  "description": "API with JWT",
+  "main": "app.js",
+  "repository": "https://github.com/CarlosZiegler/expressjwt",
+  "author": "Carlos Ziegler",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "jest --forceExit --detectOpenHandles --coverage"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^6.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.24",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
+  }
+}
