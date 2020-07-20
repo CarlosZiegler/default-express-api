@@ -29,3 +29,4 @@ jobs:
         MONGO_URI: ${{ secrets.MongoUri }}
         ENV: ${{ secrets.ENV }}
         PORT: ${{ secrets.PORT }}
+        SECRET_JWT: ${{ secrets.SECRET_JWT }}

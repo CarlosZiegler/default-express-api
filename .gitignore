@@ -7,8 +7,6 @@ npm-debug.log
 # Environment Variables should NEVER be published
 .env
 
-jwtConfig.js
-
 package-lock.json
 yarn.lock
 yarn.error
