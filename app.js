@@ -9,6 +9,7 @@ const swaggerUI = require('swagger-ui-express');
 const dbConnection = require('./configs/db.config');
 const routes = require('./routes')
 
+require('./auth/auth');
 
 const connectToMongo = async () => await dbConnection()
 connectToMongo();
@@ -49,7 +50,7 @@ const options = {
     }
 };
 
-require('./auth/auth');
+
 app.use(Cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(routes)

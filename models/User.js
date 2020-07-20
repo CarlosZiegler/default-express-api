@@ -23,7 +23,7 @@ UserSchema.pre('save', async function (next) {
     const user = this;
     //Hash the password with a salt round of 10, the higher the rounds the more secure, but the slower
     //your application becomes.
-    const hash = await bcrypt.hash(this.password, 10);
+    const hash = await bcrypt.hash(user.password, 10);
     //Replace the plain text password with the hash and then store it
     this.password = hash;
     //Indicates we're done and moves on to the next middleware

@@ -1,9 +1,9 @@
-const express = require('express');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const jwtSecret = require('../jwtConfig')
 
 module.exports = {
+    // Create new User account
     async store(req, res, next) {
         res.json({
             message: 'Signup successful',

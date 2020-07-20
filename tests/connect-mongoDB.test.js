@@ -10,28 +10,19 @@ beforeEach(() => {
 
 });
 
-afterAll(() => {
-  process.env = OLD_ENV;
-});
-
-
 describe('Testing DB', () => {
-  test('Connecting to Db and returning connection true', async () => {
+  test('Connecting to Db', async () => {
     const connection = await DbConnection()
     expect(connection).toBe(true);
   });
-  test('Connecting to Db and returning connection False', async () => {
+  test('Try to connect into Db with wrong URI String', async () => {
     process.env.MONGO_URI = 'http://wrongurl.com';
     const connection = await DbConnection()
     expect(connection).toBe(false);
   });
-  test('Connecting to Db and returning connection true', async () => {
-    const connection = await DbConnection()
-    expect(connection).toBe(true);
-  });
-
 
 });
 afterAll(async () => {
+  process.env = OLD_ENV;
   await mongoose.connection.close();
 });
