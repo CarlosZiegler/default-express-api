@@ -11,6 +11,7 @@ module.exports = {
         });
     },
 
+    // Signup user with email and password 
     async index(req, res, next) {
         passport.authenticate('login', async (err, user, info) => {
             try {

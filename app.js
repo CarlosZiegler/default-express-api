@@ -49,9 +49,10 @@ const options = {
     }
 };
 
-
 app.use(Cors())
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.json())
 app.use(routes)
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs, options))
 
