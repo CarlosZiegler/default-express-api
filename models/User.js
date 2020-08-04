@@ -14,9 +14,23 @@ const UserSchema = new Schema({
         required: true,
     },
     displayName: String,
+    githubId: String,
+    googleId: String,
+    linkedinId: String,
+    vacancies: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Vacancy'
+    }],
     role: {
         type: String,
-        enum: ["professional", "recruiter"]
+        enum: ['professional', 'company'],
+        default: 'professional'
+    },
+    avatarUrl: String
+}, {
+    timestamps: {
+        createdAt: "created_at",
+        updatedAt: "updated_at"
     }
 });
 
