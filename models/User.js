@@ -12,7 +12,11 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true,
-        // select: false,
+    },
+    displayName: String,
+    role: {
+        type: String,
+        enum: ["professional", "recruiter"]
     }
 });
 
