@@ -1,7 +1,7 @@
 const express = require("express");
 const passport = require('passport');
 const AuthController = require("./controllers/AuthController");
-const ProfileController = require("./controllers/ProfileController");
+const VacancyController = require("./controllers/VacancyController");
 
 const routes = express.Router();
 
@@ -28,12 +28,44 @@ routes.post("/login", AuthController.index);
 
 /**
  * @swagger
- * /profile:
+ * /main:
  *  post:
  *    description: access the route only with valid token
  *       
  */
-routes.get("/profile", passport.authenticate('jwt', { session: false }), ProfileController.index);
+routes.get("/vacancies", passport.authenticate('jwt', { session: false }), VacancyController.index);
+/**
+ * @swagger
+ * /main:
+ *  post:
+ *    description: access the route only with valid token
+ *       
+ */
+routes.get("/vacancy/:id", passport.authenticate('jwt', { session: false }), VacancyController.index);
+/**
+ * @swagger
+ * /vacancy/create:
+ *  post:
+ *    description: access the route only with valid token
+ *       
+ */
+routes.post("/vacancy/create", passport.authenticate('jwt', { session: false }), VacancyController.store);
+/**
+ * @swagger
+ * /vacancy/update:
+ *  post:
+ *    description: update a vacancy with Id
+ *       
+ */
+routes.put("/vacancy/update/:id", passport.authenticate('jwt', { session: false }), VacancyController.update);
+/**
+ * @swagger
+ * /vacancy/update:
+ *  post:
+ *    description: update a vacancy with Id
+ *       
+ */
+routes.delete("/vacancy/delete/:id", passport.authenticate('jwt', { session: false }), VacancyController.destroy);
 
 
 module.exports = routes;

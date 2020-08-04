@@ -9,12 +9,16 @@ const vacancySchema = new Schema({
     location: String,
     companyId: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'user'
     },
-    applications: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }]
+    contact: {
+        email: {
+            type: String,
+            required: true
+        },
+        link: String,
+        linkedIn: String
+    }
 }, {
     timestamps: {
         createdAt: "created_at",
