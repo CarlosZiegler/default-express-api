@@ -1,8 +1,7 @@
 const express = require("express");
 const passport = require('passport');
 const AuthController = require("./controllers/AuthController");
-const VacancyController = require("./controllers/VacancyController");
-const ProfessionalController = require("./controllers/ProfessionalController");
+const Controller = require("./controllers/Controller");
 
 const routes = express.Router();
 
@@ -25,89 +24,7 @@ routes.post("/signup", passport.authenticate('signup', { session: false }), Auth
  *    description: Sign in with email and password
  *       
  */
-routes.post("/login", AuthController.index);
-
-/**
- * @swagger
- * /main:
- *  post:
- *    description: access the route only with valid token
- *       
- */
-routes.get("/vacancies", passport.authenticate('jwt', { session: false }), VacancyController.index);
-/**
- * @swagger
- * /main:
- *  post:
- *    description: access the route only with valid token
- *       
- */
-routes.get("/vacancy/:id", passport.authenticate('jwt', { session: false }), VacancyController.show);
-/**
- * @swagger
- * /vacancy/create:
- *  post:
- *    description: access the route only with valid token
- *       
- */
-routes.post("/vacancy/create", passport.authenticate('jwt', { session: false }), VacancyController.store);
-/**
- * @swagger
- * /vacancy/update:
- *  post:
- *    description: update a vacancy with Id
- *       
- */
-routes.put("/vacancy/update/:id", passport.authenticate('jwt', { session: false }), VacancyController.update);
-/**
- * @swagger
- * /vacancy/update:
- *  post:
- *    description: update a vacancy with Id
- *       
- */
-routes.delete("/vacancy/delete/:id", passport.authenticate('jwt', { session: false }), VacancyController.destroy);
-
-/**
- * @swagger
- * /main:
- *  post:
- *    description: access the route only with valid token
- *       
- */
-routes.get("/professionals", passport.authenticate('jwt', { session: false }), ProfessionalController.index);
-/**
- * @swagger
- * /main:
- *  post:
- *    description: access the route only with valid token
- *       
- */
-routes.get("/professional/:id", passport.authenticate('jwt', { session: false }), ProfessionalController.show);
-/**
- * @swagger
- * /vacancy/create:
- *  post:
- *    description: access the route only with valid token
- *       
- */
-routes.post("/professional/create", passport.authenticate('jwt', { session: false }), ProfessionalController.store);
-/**
- * @swagger
- * /vacancy/update:
- *  post:
- *    description: update a vacancy with Id
- *       
- */
-routes.put("/professional/update/:id", passport.authenticate('jwt', { session: false }), ProfessionalController.update);
-/**
- * @swagger
- * /vacancy/update:
- *  post:
- *    description: update a vacancy with Id
- *       
- */
-routes.delete("/professional/delete/:id", passport.authenticate('jwt', { session: false }), ProfessionalController.destroy);
+routes.get("/main", Controller.index);
 
 
 module.exports = routes;
