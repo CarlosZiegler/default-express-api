@@ -12,6 +12,7 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true,
+
     },
     displayName: String,
     githubId: String,

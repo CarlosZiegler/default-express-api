@@ -2,12 +2,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const vacancySchema = new Schema({
-    title: String,
-    description: String,
-    tags: [String],
+const professionalSchema = new Schema({
+    position: [String],
     location: String,
-    companyId: {
+    userId: {
         type: Schema.Types.ObjectId,
         ref: 'user'
     },
@@ -18,7 +16,6 @@ const vacancySchema = new Schema({
         },
         link: String,
         linkedIn: String,
-        phoneNumber: String
     }
 }, {
     timestamps: {
@@ -27,6 +24,6 @@ const vacancySchema = new Schema({
     }
 });
 
-const Vacancy = mongoose.model("Vacancy", vacancySchema);
+const Professional = mongoose.model("Professional", professionalSchema);
 
-module.exports = Vacancy;
+module.exports = Professional;
